@@ -1,0 +1,33 @@
+{
+  "name": "RoadBed - Find Your Perfect Home",
+  "short_name": "RoadBed",
+  "description": "Discover and book rental properties with ease. RoadBed connects tenants with verified property owners.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#7c3aed",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/pwa-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/pwa-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["lifestyle", "real estate", "housing"],
+  "lang": "en",
+  "scope": "/",
+  "prefer_related_applications": false
+}

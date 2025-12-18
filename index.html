@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>RoadBed - Brokerage-Free Property Rentals & Sales</title>
+    <meta name="description" content="Find your perfect home without brokerage fees. Connect directly with verified property owners across India. Rent or buy apartments, houses, and more." />
+    <meta name="author" content="krishna teja" />
+    <meta name="theme-color" content="#7c3aed" />
+
+    <meta property="og:title" content="RoadBed - Brokerage-Free Property Rentals & Sales" />
+    <meta property="og:description" content="Find your perfect home without brokerage fees. Connect directly with verified property owners." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@Lovable" />
+    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="/pwa-192.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="RoadBed" />
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // Avoid service worker caching during preview/dev (prevents stale bundles & React hook errors)
+      const isPreview = location.hostname.startsWith('id-preview') || location.hostname.includes('localhost');
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', async () => {
+          if (isPreview) {
+            const regs = await navigator.serviceWorker.getRegistrations();
+            await Promise.all(regs.map((r) => r.unregister()));
+            if (window.caches) {
+              const keys = await caches.keys();
+              await Promise.all(keys.map((k) => caches.delete(k)));
+            }
+            return;
+          }
+
+          navigator.serviceWorker
+            .register('/sw.js')
+            .catch(() => {
+              // ignore
+            });
+        });
+      }
+    </script>
+  </body>
+</html>
